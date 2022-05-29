@@ -7,7 +7,7 @@ class FailureView extends StatelessWidget {
     required this.onPressed,
   });
   String title, message;
-  Function onPressed;
+  VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,25 @@ class FailureView extends StatelessWidget {
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [],
+          children: [
+            Icon(
+              Icons.error_outline,
+              color: Colors.red,
+              size: 150,
+            ),
+            Text(
+              title,
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
+            Text(
+              message,
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+            ElevatedButton(
+              onPressed: onPressed,
+              child: Text("Retry"),
+            ),
+          ],
         ),
       ),
     );

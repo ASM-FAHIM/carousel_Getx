@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_carousel/app/modules.home/controllers/home_controller.dart';
@@ -21,8 +22,12 @@ class HomeView extends GetView<HomeController> {
           );
         } else {
           if (controller.isDataError.value) {
-            return FailureView(onPressed: () {});
-          } else {}
+            return FailureView(onPressed: () {
+              controller.getPopular();
+            });
+          } else {
+            return CarouselSlider(items: items, options: options),
+          }
         }
       }),
     );
