@@ -5,7 +5,7 @@ class PopularProvider extends GetConnect {
   Future<List<dynamic>> getPopular() async {
     try {
       final response =
-          await get("https://www.episodate.com/api/most-popular?page=1");
+          await get("https://www.episodate.com/api/most-popular?paga=1");
       if (response.status.hasError) {
         return Future.error(response.statusText.toString());
       } else {
